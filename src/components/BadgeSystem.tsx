@@ -149,7 +149,7 @@ export function BadgeSystem() {
             Profile header
           </p>
           <div className="mt-4 flex items-center gap-4">
-            <VeloopBadge tier={BADGE_TIERS[3]} size={72} />
+            <VeloopBadge tier={BADGE_TIERS[3]!} size={72} />
             <div>
               <p className="font-display text-sm font-bold">Ankita Rawat</p>
               <p className="text-xs text-muted-foreground">Platinum · Elite Earner</p>
@@ -175,7 +175,7 @@ export function BadgeSystem() {
         </div>
 
         <div className="surface-card flex items-center gap-3 p-5">
-          <VeloopBadge tier={BADGE_TIERS[9]} size={64} />
+          <VeloopBadge tier={BADGE_TIERS[9]!} size={64} />
           <div>
             <p className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-gold">
               <Bell className="h-3 w-3" /> Notification
