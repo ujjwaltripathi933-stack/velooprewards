@@ -74,7 +74,7 @@ export function MiningBanner() {
         ))}
       </div>
 
-      <div className="relative grid h-full gap-6 p-6 sm:p-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-4 lg:p-10">
+      <div className="relative grid h-full gap-5 p-5 sm:p-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-6 lg:p-9">
         {/* copy + controls */}
         <div className="max-w-xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
@@ -82,17 +82,17 @@ export function MiningBanner() {
             {mining ? "Mining active" : "Mining station ready"}
           </span>
 
-          <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-[2.6rem]">
+          <h1 className="mt-3 text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-[2.15rem]">
             Start Mining.<br />
             <span className="text-gradient-gold">Start Earning VEs.</span>
           </h1>
-          <p className="mt-3 max-w-md text-sm text-muted-foreground sm:text-base">
+          <p className="mt-2 max-w-md text-sm text-muted-foreground">
             Activate a mining session and watch your rig generate VEs straight into your
             VELOOP wallet — every minute you stay engaged compounds your rewards.
           </p>
 
           {/* progress */}
-          <div className="mt-6 rounded-2xl border border-border/70 bg-navy-deep/60 p-4 backdrop-blur-sm">
+          <div className="mt-4 rounded-2xl border border-border/70 bg-navy-deep/60 p-3.5 backdrop-blur-sm">
             <div className="flex items-baseline justify-between text-xs uppercase tracking-[0.14em] text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
                 <Gauge className="h-3.5 w-3.5 text-sky-soft" /> Mining progress
@@ -117,7 +117,7 @@ export function MiningBanner() {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
             <button
               type="button"
               onClick={() => setMining((m) => !m)}
@@ -151,7 +151,7 @@ export function MiningBanner() {
             width={1024}
             height={1024}
             alt="A VELOOP miner operating a futuristic mining rig as gold VE coins stream into a wallet"
-            className="relative z-10 max-h-[330px] w-auto animate-float-soft object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+            className="relative z-10 max-h-[290px] lg:max-h-[330px] w-auto animate-float-soft object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
           />
         </div>
       </div>

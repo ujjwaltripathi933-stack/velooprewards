@@ -27,7 +27,7 @@ export function VeloopBadge({ tier, size = 132, locked = false, className }: Pro
       role="img"
       aria-label={`${tier.name} badge — level ${tier.level} ${tier.title}${locked ? ", locked" : ", unlocked"}`}
       className={className}
-      style={locked ? { filter: "saturate(0.18) brightness(0.72)" } : undefined}
+      style={locked ? { filter: "saturate(0.28) brightness(0.78)" } : undefined}
     >
       <defs>
         <linearGradient id={`${id}-metal`} x1="0" y1="0" x2="0.4" y2="1">
@@ -208,9 +208,9 @@ export function VeloopBadge({ tier, size = 132, locked = false, className }: Pro
 
       {locked && (
         <g>
-          <circle cx="70" cy="80" r="20" fill="#0b0d18" opacity="0.62" />
-          <foreignObject x="56" y="66" width="28" height="28">
-            <Lock className="h-7 w-7 text-silver" />
+          <circle cx="70" cy="84" r="14" fill="#0b0d18" opacity="0.72" stroke="#c9d2e0" strokeWidth="1" strokeOpacity="0.35" />
+          <foreignObject x="61" y="75" width="18" height="18">
+            <Lock className="h-[18px] w-[18px] text-silver" />
           </foreignObject>
         </g>
       )}
