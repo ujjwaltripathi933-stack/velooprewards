@@ -53,7 +53,7 @@ export const BADGE_TIERS: BadgeTier[] = [
     title: "Reward Hunter",
     rarity: "Uncommon",
     requirement: "Mine on 7 consecutive days",
-    metal: ["#ffe9ac", "#e0b martin", "#8a5f16"],
+    metal: ["#ffe9ac", "#e0b95a", "#8a5f16"],
     gem: ["#fff3c9", "#eec25c", "#8a6218"],
     glow: "#e8bd5c",
     ornament: 1,
