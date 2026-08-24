@@ -124,7 +124,7 @@ export function BadgeSystem() {
           </h3>
           <p className="text-xs text-muted-foreground">Bronze → Legend · rarity rises with each tier</p>
         </div>
-        <div className="mt-5 flex min-w-max items-end gap-2">
+        <div className="mt-5 flex min-w-max items-end gap-2 pr-4">
           {BADGE_TIERS.map((tier, i) => (
             <div key={tier.level} className="flex items-end gap-2">
               <div className="flex w-[86px] flex-col items-center gap-1.5">
