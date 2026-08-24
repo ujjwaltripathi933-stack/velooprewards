@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MiningBanner } from "@/components/MiningBanner";
 import { BadgeSystem } from "@/components/BadgeSystem";
+import veloopLogo from "@/assets/veloop-logo.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,22 +49,14 @@ function Index() {
     <main className="mx-auto w-full max-w-[1400px] px-4 py-10 sm:px-6 lg:px-10 lg:py-14">
       <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true">
-            <path
-              d="M8 8 L20 34 L32 8"
-              fill="none"
-              stroke="url(#lg)"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <defs>
-              <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#fff3c9" />
-                <stop offset="100%" stopColor="#e0a52f" />
-              </linearGradient>
-            </defs>
-          </svg>
+          <img
+            src={veloopLogo.url}
+            alt="VELOOP Rewards logo"
+            width={38}
+            height={38}
+            className="h-10 w-10 rounded-full object-cover ring-1 ring-border/60"
+          />
+
           <div>
             <p className="font-display text-sm font-extrabold tracking-[0.24em]">VELOOP</p>
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Rewards</p>
