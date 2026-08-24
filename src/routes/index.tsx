@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MiningBanner } from "@/components/MiningBanner";
 import { BadgeSystem } from "@/components/BadgeSystem";
+import veloopLogo from "@/assets/veloop-logo.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
