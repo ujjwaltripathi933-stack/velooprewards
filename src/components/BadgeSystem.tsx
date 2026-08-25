@@ -43,16 +43,26 @@ function BadgeCard({ tier, onSelect }: { tier: BadgeTier; onSelect: (t: BadgeTie
       </div>
       <RarityChip tier={tier} />
 
-      {/* hover tooltip */}
-      <span className="pointer-events-none absolute inset-x-2 bottom-2 z-20 translate-y-2 rounded-xl border border-border bg-popover/95 p-3 text-left opacity-0 shadow-banner backdrop-blur transition-all duration-200 group-hover/badge:translate-y-0 group-hover/badge:opacity-100">
+      {/* hover / focus tooltip */}
+      <span
+        role="tooltip"
+        className="pointer-events-none absolute inset-x-2 bottom-2 z-20 translate-y-2 rounded-xl border border-border bg-popover/95 p-3 text-left opacity-0 shadow-banner backdrop-blur transition-all duration-200 group-hover/badge:translate-y-0 group-hover/badge:opacity-100 group-focus-visible/badge:translate-y-0 group-focus-visible/badge:opacity-100"
+      >
         <span className="block font-display text-xs font-bold text-foreground">
           {tier.name} · Level {String(tier.level).padStart(2, "0")}
         </span>
-        <span className="mt-0.5 block text-[11px] text-muted-foreground">
-          Status: {locked ? "Locked" : "Unlocked"}
+        <span
+          className="mt-0.5 block text-[11px] font-semibold uppercase tracking-[0.12em]"
+          style={{ color: locked ? undefined : tier.glow }}
+        >
+          {locked ? "Locked · " : "Unlocked · "}
+          {tier.rarity}
         </span>
         <span className="mt-1 block text-[11px] leading-snug text-muted-foreground">
-          {tier.requirement}
+          {locked ? `How to unlock: ${tier.requirement}` : `Earned by: ${tier.requirement}`}
+        </span>
+        <span className="mt-1.5 block text-[10px] uppercase tracking-[0.14em] text-gold">
+          Click for details
         </span>
       </span>
     </button>
