@@ -78,7 +78,7 @@ function Index() {
         <SectionHeading
           eyebrow="Part B"
           title="Achievement badge system"
-          copy="Ten tiers built on one geometry — hex crest, gem plate, VE emblem and level ribbon — with ornamentation, gemstones, crown and wings scaling toward Legend. Hover for details, click any badge for the unlock concept."
+          copy="Ten sculpted 3D crests on one shared silhouette — metal frame, faceted gemstone core and VE emblem — with laurels, crowns and wings escalating toward Legend. Hover for requirements, click any badge to preview the unlock moment."
         />
         <h2 id="badges-heading" className="sr-only">
           Badges
