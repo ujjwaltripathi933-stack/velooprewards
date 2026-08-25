@@ -77,18 +77,18 @@ export function MiningBanner() {
       <div className="relative grid h-full gap-5 p-5 sm:p-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-6 lg:p-9">
         {/* copy + controls */}
         <div className="max-w-xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-gold">
             <Cpu className="h-3.5 w-3.5" />
-            {mining ? "Mining active" : "Mining station ready"}
+            {mining ? "Mining active · Level 04 Platinum" : "Mining station ready"}
           </span>
 
-          <h1 className="mt-3 text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-[2.15rem]">
-            Start Mining.<br />
-            <span className="text-gradient-gold">Start Earning VEs.</span>
+          <h1 className="mt-3.5 font-display text-[1.7rem] font-extrabold leading-[1.1] tracking-[-0.02em] sm:text-[2rem] lg:text-[2.3rem]">
+            Mine &amp; Earn.<br />
+            <span className="text-gradient-gold">Rise Through Every Tier.</span>
           </h1>
-          <p className="mt-2 max-w-md text-sm text-muted-foreground">
-            Activate a mining session and watch your rig generate VEs straight into your
-            VELOOP wallet — every minute you stay engaged compounds your rewards.
+          <p className="mt-2.5 max-w-md text-[13px] leading-relaxed text-muted-foreground">
+            Fire up a session and your rig mines VEs straight into the VELOOP wallet — every
+            streak pushes you closer to the next legendary badge.
           </p>
 
           {/* progress */}
@@ -121,16 +121,16 @@ export function MiningBanner() {
             <button
               type="button"
               onClick={() => setMining((m) => !m)}
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-champagne via-gold to-gold-soft px-5 py-3 text-sm font-bold text-primary-foreground shadow-gold transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-champagne via-gold to-gold-soft px-5 py-3 font-display text-[13px] font-extrabold uppercase tracking-[0.12em] text-primary-foreground shadow-gold transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <Pickaxe className="h-4 w-4" />
-              {mining ? "Mining in progress" : "Start Mining"}
+              {mining ? "Mining in progress" : "Start mining now"}
               <ArrowRight className="h-4 w-4" />
             </button>
 
             <div className="rounded-xl border border-border/70 bg-card/60 px-4 py-2.5">
-              <p className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                Mining earned
+              <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                VEs mined
               </p>
               <p className="flex items-center gap-1.5 font-display text-xl font-extrabold text-gold tabular-nums">
                 <VeCoin size={16} /> {earned} VEs
