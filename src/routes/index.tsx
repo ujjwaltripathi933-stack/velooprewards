@@ -64,9 +64,6 @@ function Index() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Rewards</p>
           </div>
         </div>
-        <p className="text-xs text-muted-foreground">
-          Task 11 · Mining Banner &amp; 10-Level Achievement Badges
-        </p>
       </header>
 
       <section aria-labelledby="banner-heading">
