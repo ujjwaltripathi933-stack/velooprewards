@@ -31,14 +31,16 @@ function SectionHeading({
   title,
   copy,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   copy: string;
 }) {
   return (
     <div className="mb-6 max-w-2xl">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">{eyebrow}</p>
-      <h2 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{title}</h2>
+      {eyebrow && (
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">{eyebrow}</p>
+      )}
+      <h2 className={eyebrow ? "mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl" : "text-2xl font-extrabold tracking-tight sm:text-3xl"}>{title}</h2>
       <p className="mt-2 text-sm text-muted-foreground">{copy}</p>
     </div>
   );
@@ -62,9 +64,6 @@ function Index() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Rewards</p>
           </div>
         </div>
-        <p className="text-xs text-muted-foreground">
-          Task 11 · Mining Banner &amp; 10-Level Achievement Badges
-        </p>
       </header>
 
       <section aria-labelledby="banner-heading">
@@ -76,7 +75,6 @@ function Index() {
 
       <section className="mt-14" aria-labelledby="badges-heading">
         <SectionHeading
-          eyebrow="Part B"
           title="Achievement badge system"
           copy="Ten sculpted 3D crests on one shared silhouette — metal frame, faceted gemstone core and VE emblem — with laurels, crowns and wings escalating toward Legend. Hover for requirements, click any badge to preview the unlock moment."
         />
