@@ -156,6 +156,11 @@ export function BadgeSystem() {
         </div>
       </div>
 
+      {/* tier legend */}
+      <div className="mt-8">
+        <TierLegend />
+      </div>
+
       {/* usage previews */}
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         <div className="surface-card p-5">
