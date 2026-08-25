@@ -121,16 +121,16 @@ export function MiningBanner() {
             <button
               type="button"
               onClick={() => setMining((m) => !m)}
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-champagne via-gold to-gold-soft px-5 py-3 text-sm font-bold text-primary-foreground shadow-gold transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-champagne via-gold to-gold-soft px-5 py-3 font-display text-[13px] font-extrabold uppercase tracking-[0.12em] text-primary-foreground shadow-gold transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <Pickaxe className="h-4 w-4" />
-              {mining ? "Mining in progress" : "Start Mining"}
+              {mining ? "Mining in progress" : "Start mining now"}
               <ArrowRight className="h-4 w-4" />
             </button>
 
             <div className="rounded-xl border border-border/70 bg-card/60 px-4 py-2.5">
-              <p className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                Mining earned
+              <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                VEs mined
               </p>
               <p className="flex items-center gap-1.5 font-display text-xl font-extrabold text-gold tabular-nums">
                 <VeCoin size={16} /> {earned} VEs
