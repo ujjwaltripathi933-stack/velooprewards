@@ -166,7 +166,7 @@ export function BadgeSystem() {
           </p>
           <div className="mt-4 flex items-center gap-1">
             {BADGE_TIERS.slice(0, 6).map((t) => (
-              <VeloopBadge key={t.level} tier={t} locked={!t.unlocked} size={46} />
+              <VeloopBadge key={t.level} tier={t} locked={!t.unlocked} size={46} hideLevel />
             ))}
           </div>
           <p className="mt-3 text-xs text-muted-foreground">
@@ -190,8 +190,8 @@ export function BadgeSystem() {
 
       <p className="mt-6 inline-flex items-center gap-2 text-xs text-muted-foreground">
         <Sparkles className="h-3.5 w-3.5 text-gold" />
-        Every badge renders on a transparent canvas as inline SVG — usable on dark or light
-        surfaces, cards, modals and notifications.
+        Every badge is exported on a transparent canvas — the same asset drops onto dark or light
+        surfaces, cards, modals and notifications without a plate behind it.
       </p>
 
       {selected && <UnlockModal tier={selected} onClose={() => setSelected(null)} />}
