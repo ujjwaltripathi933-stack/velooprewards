@@ -102,7 +102,10 @@ function UnlockModal({ tier, onClose }: { tier: BadgeTier; onClose: () => void }
         <p className="text-sm text-muted-foreground">
           {tier.title} · Level {String(tier.level).padStart(2, "0")} · {tier.rarity}
         </p>
-        <p className="mt-3 text-sm text-foreground/80">{tier.requirement}</p>
+        <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+          {tier.unlocked ? "Earned by" : "How to unlock"}
+        </p>
+        <p className="mt-1 text-sm text-foreground/80">{tier.requirement}</p>
         <button
           type="button"
           onClick={onClose}
