@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Bell, Check, Lock, PartyPopper, Sparkles, X } from "lucide-react";
 import { BADGE_TIERS, type BadgeTier } from "@/lib/badges";
 import { VeloopBadge } from "@/components/VeloopBadge";
+import { TierLegend } from "@/components/TierLegend";
 
 function RarityChip({ tier }: { tier: BadgeTier }) {
   return (
