@@ -82,8 +82,9 @@ export function VeloopBadge({
           aria-hidden
           className="pointer-events-none absolute inset-0 rounded-full blur-xl animate-badge-aura"
           style={{
-            background: `radial-gradient(circle at 50% 52%, ${tier.glow}66 0%, ${tier.glow}1f 45%, transparent 72%)`,
+            background: `radial-gradient(circle at 50% 52%, ${fxColor}66 0%, ${fxColor}1f 45%, transparent 72%)`,
             animationDuration: `${4.4 - rank * 0.35}s`,
+            opacity: fx,
           }}
         />
       )}
@@ -94,12 +95,12 @@ export function VeloopBadge({
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 rounded-full border animate-badge-ring-pulse"
-            style={{ borderColor: `${tier.glow}66` }}
+            style={{ borderColor: `${fxColor}66`, opacity: fx }}
           />
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 rounded-full border animate-badge-ring-pulse"
-            style={{ borderColor: `${tier.glow}40`, animationDelay: "1.5s" }}
+            style={{ borderColor: `${fxColor}40`, animationDelay: "1.5s", opacity: fx }}
           />
         </>
       )}
