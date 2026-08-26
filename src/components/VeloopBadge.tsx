@@ -139,8 +139,9 @@ export function VeloopBadge({
               style={{
                 width: Math.max(2, size * 0.045),
                 height: Math.max(2, size * 0.045),
-                background: tier.glow,
-                boxShadow: `0 0 ${size * 0.09}px ${tier.glow}`,
+                background: fxColor,
+                boxShadow: `0 0 ${size * 0.09}px ${fxColor}`,
+                opacity: fx,
               }}
             />
           </span>
