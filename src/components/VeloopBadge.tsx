@@ -109,9 +109,10 @@ export function VeloopBadge({
       {showHalo && (
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-[-6%] rounded-full animate-badge-halo-spin opacity-70"
+          className="pointer-events-none absolute inset-[-6%] rounded-full animate-badge-halo-spin"
           style={{
-            background: `conic-gradient(from 0deg, transparent 0deg, ${tier.glow}00 140deg, ${tier.glow}55 200deg, ${tier.glow}00 260deg, transparent 360deg)`,
+            opacity: 0.7 * fx,
+            background: `conic-gradient(from 0deg, transparent 0deg, ${fxColor}00 140deg, ${fxColor}55 200deg, ${fxColor}00 260deg, transparent 360deg)`,
             maskImage: "radial-gradient(circle, transparent 58%, black 66%, black 78%, transparent 82%)",
             WebkitMaskImage:
               "radial-gradient(circle, transparent 58%, black 66%, black 78%, transparent 82%)",
