@@ -56,14 +56,17 @@ export function VeloopBadge({
 }: Props) {
   const art = BADGE_ART[tier.level];
   const rank = RARITY_RANK[tier.rarity];
-  const alive = !locked;
+  const alive = true;
+  /** locked tiers still animate, just as a dim silver-grey preview of the unlock */
+  const fx = locked ? 0.3 : 1;
+  const fxColor = locked ? "#9aa3b5" : tier.glow;
 
-  const showAura = alive;
-  const showHalo = alive && rank >= 1;
-  const showSparkles = alive && rank >= 2;
-  const showOrbit = alive && rank >= 3;
-  const showRings = alive && rank >= 4;
-  const showShine = alive && rank >= 3;
+  const showAura = true;
+  const showHalo = rank >= 1;
+  const showSparkles = rank >= 2;
+  const showOrbit = rank >= 3;
+  const showRings = rank >= 4;
+  const showShine = rank >= 3 && !locked;
 
   const sparkleCount = rank >= 5 ? 5 : rank >= 4 ? 4 : rank >= 3 ? 3 : 2;
   const orbitMotes = rank >= 5 ? 4 : rank >= 4 ? 3 : 2;
