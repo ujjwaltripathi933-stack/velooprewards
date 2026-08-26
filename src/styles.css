@@ -218,6 +218,114 @@
   animation: sheen 2.8s ease-in-out infinite;
 }
 
+/* ---------- badge legendary animation kit ---------- */
+
+@keyframes badge-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.025);
+  }
+}
+
+@keyframes badge-aura {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes badge-halo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes badge-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes badge-sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4) rotate(0deg);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1) rotate(90deg);
+  }
+  70% {
+    opacity: 0.25;
+    transform: scale(0.7) rotate(140deg);
+  }
+}
+
+@keyframes badge-shine {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(160%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes badge-ring-pulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.28);
+  }
+}
+
+@utility animate-badge-breathe {
+  animation: badge-breathe 5.5s ease-in-out infinite;
+}
+
+@utility animate-badge-aura {
+  animation: badge-aura 3.6s ease-in-out infinite;
+}
+
+@utility animate-badge-halo-spin {
+  animation: badge-halo-spin 16s linear infinite;
+}
+
+@utility animate-badge-orbit {
+  animation: badge-orbit 9s linear infinite;
+}
+
+@utility animate-badge-sparkle {
+  animation: badge-sparkle 2.6s ease-in-out infinite;
+}
+
+@utility animate-badge-shine {
+  animation: badge-shine 4.4s ease-in-out infinite;
+}
+
+@utility animate-badge-ring-pulse {
+  animation: badge-ring-pulse 3s ease-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
