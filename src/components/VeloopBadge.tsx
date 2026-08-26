@@ -198,9 +198,9 @@ export function VeloopBadge({
             key={s.top + s.left}
             aria-hidden
             className="pointer-events-none absolute animate-badge-sparkle"
-            style={{ top: s.top, left: s.left, animationDelay: s.delay }}
+            style={{ top: s.top, left: s.left, animationDelay: s.delay, opacity: fx }}
           >
-            <Sparkle color={tier.glow} size={Math.max(5, size * 0.1 * s.scale)} />
+            <Sparkle color={fxColor} size={Math.max(5, size * 0.1 * s.scale)} />
           </span>
         ))}
 
