@@ -1,6 +1,8 @@
 import { Lock } from "lucide-react";
 import type { BadgeTier } from "@/lib/badges";
 import { BADGE_ART } from "@/lib/badgeArt";
+import { BadgeBeast, BEAST_BY_LEVEL } from "@/components/BadgeBeast";
+
 
 type Props = {
   tier: BadgeTier;
@@ -71,6 +73,13 @@ export function VeloopBadge({
   const sparkleCount = rank >= 5 ? 5 : rank >= 4 ? 4 : rank >= 3 ? 3 : 2;
   const orbitMotes = rank >= 5 ? 4 : rank >= 4 ? 3 : 2;
 
+  const beast = BEAST_BY_LEVEL[tier.level] ?? "bull";
+  const beastCycle = `${8.5 - rank * 0.5}s`;
+  const beastSize = size * 0.92;
+  /** beasts only roam on the large hero/grid crests — small chips stay clean */
+  const showBeasts = size >= 96;
+
+
   return (
     <div
       className={`relative inline-flex shrink-0 items-center justify-center ${className ?? ""}`}
@@ -88,6 +97,53 @@ export function VeloopBadge({
           }}
         />
       )}
+
+      {/* mythic guardian beasts charging in from both flanks, clashing behind the crest */}
+      {showBeasts && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-[-20%] overflow-hidden rounded-full"
+          style={{
+            maskImage: "radial-gradient(circle at 50% 50%, black 55%, transparent 78%)",
+            WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 55%, transparent 78%)",
+          }}
+        >
+
+          <BadgeBeast
+            kind={beast}
+            color={fxColor}
+            opacity={locked ? 0.28 : 0.6}
+            className="absolute left-0 top-[38%] -translate-y-1/2 animate-beast-charge-in"
+            style={{ width: beastSize, height: beastSize * 0.6, animationDuration: beastCycle }}
+          />
+          <BadgeBeast
+            kind={beast}
+            color={fxColor}
+            flip
+            opacity={locked ? 0.28 : 0.6}
+            className="absolute right-0 top-[62%] -translate-y-1/2 animate-beast-charge-out"
+            style={{
+              width: beastSize,
+              height: beastSize * 0.6,
+              animationDuration: beastCycle,
+              animationDelay: "-0.25s",
+            }}
+          />
+          {/* clash impact flash */}
+          <span
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-beast-clash-flash blur-md"
+            style={{
+              width: size * 0.5,
+              height: size * 0.5,
+              background: `radial-gradient(circle, #ffffff 0%, ${fxColor}cc 35%, transparent 70%)`,
+              animationDuration: beastCycle,
+              opacity: fx,
+            }}
+          />
+        </span>
+      )}
+
+
 
       {/* mythic pulse rings */}
       {showRings && (
@@ -203,6 +259,23 @@ export function VeloopBadge({
             <Sparkle color={fxColor} size={Math.max(5, size * 0.1 * s.scale)} />
           </span>
         ))}
+
+      {/* guardian beast lunging out in front of the crest */}
+      {!locked && showBeasts && rank >= 2 && (
+        <BadgeBeast
+          kind={beast}
+          color={fxColor}
+          opacity={0.75}
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-beast-lunge"
+          style={{
+            width: size * 1.15,
+            height: size * 0.7,
+            animationDuration: `${11 - rank}s`,
+            filter: `drop-shadow(0 0 ${size * 0.08}px ${fxColor})`,
+          }}
+        />
+      )}
+
 
       {/* locked seal */}
       {locked && (
