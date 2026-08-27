@@ -244,6 +244,23 @@ export function VeloopBadge({
           </span>
         ))}
 
+      {/* guardian beast lunging out in front of the crest */}
+      {!locked && rank >= 2 && (
+        <BadgeBeast
+          kind={beast}
+          color={fxColor}
+          opacity={0.75}
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-beast-lunge"
+          style={{
+            width: size * 1.15,
+            height: size * 0.7,
+            animationDuration: `${11 - rank}s`,
+            filter: `drop-shadow(0 0 ${size * 0.08}px ${fxColor})`,
+          }}
+        />
+      )}
+
+
       {/* locked seal */}
       {locked && (
         <span
