@@ -112,7 +112,7 @@ export function VeloopBadge({
           <BadgeBeast
             kind={beast}
             color={fxColor}
-            opacity={locked ? 0.22 : 0.55}
+            opacity={locked ? 0.28 : 0.6}
             className="absolute left-0 top-[38%] -translate-y-1/2 animate-beast-charge-in"
             style={{ width: beastSize, height: beastSize * 0.6, animationDuration: beastCycle }}
           />
@@ -120,7 +120,7 @@ export function VeloopBadge({
             kind={beast}
             color={fxColor}
             flip
-            opacity={locked ? 0.22 : 0.55}
+            opacity={locked ? 0.28 : 0.6}
             className="absolute right-0 top-[62%] -translate-y-1/2 animate-beast-charge-out"
             style={{
               width: beastSize,
