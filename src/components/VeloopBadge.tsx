@@ -1,6 +1,8 @@
 import { Lock } from "lucide-react";
 import type { BadgeTier } from "@/lib/badges";
 import { BADGE_ART } from "@/lib/badgeArt";
+import { BadgeBeast, BEAST_BY_LEVEL } from "@/components/BadgeBeast";
+
 
 type Props = {
   tier: BadgeTier;
