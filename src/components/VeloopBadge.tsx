@@ -99,39 +99,42 @@ export function VeloopBadge({
       )}
 
       {/* mythic guardian beasts charging in from both flanks, clashing behind the crest */}
-      <span aria-hidden className="pointer-events-none absolute inset-0 overflow-visible">
-        <BadgeBeast
-          kind={beast}
-          color={fxColor}
-          opacity={locked ? 0.22 : 0.55}
-          className="absolute left-0 top-[38%] -translate-y-1/2 animate-beast-charge-in"
-          style={{ width: beastSize, height: beastSize * 0.6, animationDuration: beastCycle }}
-        />
-        <BadgeBeast
-          kind={beast}
-          color={fxColor}
-          flip
-          opacity={locked ? 0.22 : 0.55}
-          className="absolute right-0 top-[62%] -translate-y-1/2 animate-beast-charge-out"
-          style={{
-            width: beastSize,
-            height: beastSize * 0.6,
-            animationDuration: beastCycle,
-            animationDelay: "-0.25s",
-          }}
-        />
-        {/* clash impact flash */}
-        <span
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-beast-clash-flash blur-md"
-          style={{
-            width: size * 0.5,
-            height: size * 0.5,
-            background: `radial-gradient(circle, #ffffff 0%, ${fxColor}cc 35%, transparent 70%)`,
-            animationDuration: beastCycle,
-            opacity: fx,
-          }}
-        />
-      </span>
+      {showBeasts && (
+        <span aria-hidden className="pointer-events-none absolute inset-0 overflow-visible">
+          <BadgeBeast
+            kind={beast}
+            color={fxColor}
+            opacity={locked ? 0.22 : 0.55}
+            className="absolute left-0 top-[38%] -translate-y-1/2 animate-beast-charge-in"
+            style={{ width: beastSize, height: beastSize * 0.6, animationDuration: beastCycle }}
+          />
+          <BadgeBeast
+            kind={beast}
+            color={fxColor}
+            flip
+            opacity={locked ? 0.22 : 0.55}
+            className="absolute right-0 top-[62%] -translate-y-1/2 animate-beast-charge-out"
+            style={{
+              width: beastSize,
+              height: beastSize * 0.6,
+              animationDuration: beastCycle,
+              animationDelay: "-0.25s",
+            }}
+          />
+          {/* clash impact flash */}
+          <span
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-beast-clash-flash blur-md"
+            style={{
+              width: size * 0.5,
+              height: size * 0.5,
+              background: `radial-gradient(circle, #ffffff 0%, ${fxColor}cc 35%, transparent 70%)`,
+              animationDuration: beastCycle,
+              opacity: fx,
+            }}
+          />
+        </span>
+      )}
+
 
 
       {/* mythic pulse rings */}
