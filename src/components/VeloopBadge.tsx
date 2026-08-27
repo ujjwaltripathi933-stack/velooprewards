@@ -102,7 +102,7 @@ export function VeloopBadge({
       {showBeasts && (
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-[-8%] overflow-hidden rounded-full"
+          className="pointer-events-none absolute inset-[-20%] overflow-hidden rounded-full"
           style={{
             maskImage: "radial-gradient(circle at 50% 50%, black 55%, transparent 78%)",
             WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 55%, transparent 78%)",
