@@ -76,6 +76,9 @@ export function VeloopBadge({
   const beast = BEAST_BY_LEVEL[tier.level] ?? "bull";
   const beastCycle = `${8.5 - rank * 0.5}s`;
   const beastSize = size * 0.92;
+  /** beasts only roam on the large hero/grid crests — small chips stay clean */
+  const showBeasts = size >= 96;
+
 
   return (
     <div
