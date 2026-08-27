@@ -253,7 +253,7 @@ export function VeloopBadge({
         ))}
 
       {/* guardian beast lunging out in front of the crest */}
-      {!locked && rank >= 2 && (
+      {!locked && showBeasts && rank >= 2 && (
         <BadgeBeast
           kind={beast}
           color={fxColor}
