@@ -100,7 +100,15 @@ export function VeloopBadge({
 
       {/* mythic guardian beasts charging in from both flanks, clashing behind the crest */}
       {showBeasts && (
-        <span aria-hidden className="pointer-events-none absolute inset-0 overflow-visible">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-[-8%] overflow-hidden rounded-full"
+          style={{
+            maskImage: "radial-gradient(circle at 50% 50%, black 55%, transparent 78%)",
+            WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 55%, transparent 78%)",
+          }}
+        >
+
           <BadgeBeast
             kind={beast}
             color={fxColor}
