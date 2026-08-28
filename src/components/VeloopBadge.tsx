@@ -98,6 +98,97 @@ export function VeloopBadge({
         />
       )}
 
+      {/* charged energy frame — legendary card border glow */}
+      {showBeasts && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-[-6%] rounded-[26%] animate-fx-frame-charge"
+          style={{
+            border: `${Math.max(1, size * 0.01)}px solid ${fxColor}`,
+            boxShadow: `0 0 ${size * 0.12}px ${fxColor}80`,
+            opacity: 0.4 * fx,
+            animationDuration: `${3.2 - rank * 0.18}s`,
+          }}
+        />
+      )}
+
+
+      {/* flame crown licking up behind the crest */}
+      {showBeasts && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 overflow-hidden rounded-full"
+          style={{
+            opacity: locked ? 0.22 : 0.7,
+            maskImage: "radial-gradient(circle at 50% 60%, black 45%, transparent 76%)",
+            WebkitMaskImage: "radial-gradient(circle at 50% 60%, black 45%, transparent 76%)",
+          }}
+        >
+          {[0, 1, 2].map((i) => (
+            <span
+              key={`flame-${i}`}
+              className="absolute bottom-[-6%] rounded-[50%_50%_45%_45%/70%_70%_30%_30%] animate-fx-flame blur-[7px]"
+              style={{
+                left: `${24 + i * 22}%`,
+                width: size * (0.22 - i * 0.03),
+                height: size * (0.5 + i * 0.06),
+                background: `linear-gradient(to top, ${fxColor}00 0%, ${fxColor}aa 40%, #fff4d066 85%, transparent 100%)`,
+                animationDelay: `${i * -0.45}s`,
+                animationDuration: `${1.4 + i * 0.22}s`,
+                mixBlendMode: "screen",
+              }}
+            />
+          ))}
+        </span>
+      )}
+
+      {/* rising embers */}
+      {showBeasts &&
+        Array.from({ length: rank >= 3 ? 8 : 5 }).map((_, i) => (
+          <span
+            key={`ember-${i}`}
+            aria-hidden
+            className="pointer-events-none absolute bottom-0 rounded-full animate-fx-ember"
+            style={
+              {
+                left: `${8 + ((i * 11) % 84)}%`,
+                width: Math.max(2, size * (0.022 + (i % 3) * 0.008)),
+                height: Math.max(2, size * (0.022 + (i % 3) * 0.008)),
+                background: i % 3 === 0 ? "#fff3d4" : fxColor,
+                boxShadow: `0 0 ${size * 0.07}px ${fxColor}`,
+                opacity: fx,
+                animationDelay: `${i * -0.42}s`,
+                animationDuration: `${3 + (i % 4) * 0.6}s`,
+                "--ember-drift": `${(i % 2 ? 1 : -1) * (8 + i * 2)}px`,
+              } as React.CSSProperties
+            }
+          />
+        ))}
+
+      {/* counter-rotating energy ribbons */}
+      {showBeasts &&
+        [0, 1].map((i) => (
+          <span
+            key={`ribbon-${i}`}
+            aria-hidden
+            className="pointer-events-none absolute inset-[-10%] rounded-full animate-fx-ribbon blur-[3px]"
+            style={{
+              background: `conic-gradient(from ${i * 140}deg, transparent 0deg, ${fxColor}00 60deg, ${fxColor}aa 110deg, #ffffff88 130deg, ${fxColor}00 180deg, transparent 360deg)`,
+              maskImage:
+                "radial-gradient(circle, transparent 56%, black 64%, black 74%, transparent 80%)",
+              WebkitMaskImage:
+                "radial-gradient(circle, transparent 56%, black 64%, black 74%, transparent 80%)",
+              animationDirection: i ? "reverse" : "normal",
+              animationDuration: `${13 - rank}s`,
+              opacity: (locked ? 0.35 : 0.75) * 1,
+              mixBlendMode: "screen",
+            }}
+          />
+        ))}
+
+
+
+
       {/* mythic guardian beasts charging in from both flanks, clashing behind the crest */}
       {showBeasts && (
         <span
@@ -259,6 +350,34 @@ export function VeloopBadge({
             <Sparkle color={fxColor} size={Math.max(5, size * 0.1 * s.scale)} />
           </span>
         ))}
+
+      {/* shard burst — light fragments blasting outward on the reveal beat */}
+      {showBeasts && Array.from({ length: rank >= 3 ? 10 : 6 }).map((_, i) => {
+        const total = rank >= 3 ? 10 : 6;
+        return (
+          <span
+            key={`shard-${i}`}
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 animate-fx-shard"
+            style={
+              {
+                width: Math.max(2, size * 0.02),
+                height: size * (0.12 + (i % 3) * 0.03),
+                borderRadius: "2px",
+                background: `linear-gradient(to bottom, #ffffff, ${fxColor}00)`,
+                boxShadow: `0 0 ${size * 0.06}px ${fxColor}`,
+                opacity: fx,
+                animationDuration: `${5.5 - rank * 0.3}s`,
+                animationDelay: `${i * -0.08}s`,
+                "--shard-angle": `${(360 / total) * i}deg`,
+                "--shard-dist": `${size * 0.6}px`,
+              } as React.CSSProperties
+            }
+          />
+        );
+      })}
+
+
 
       {/* guardian beast lunging out in front of the crest */}
       {!locked && showBeasts && rank >= 2 && (
