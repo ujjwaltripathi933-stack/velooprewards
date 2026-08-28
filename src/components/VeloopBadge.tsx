@@ -1,7 +1,7 @@
 import { Lock } from "lucide-react";
 import type { BadgeTier } from "@/lib/badges";
 import { BADGE_ART } from "@/lib/badgeArt";
-import { BadgeBeast, BEAST_BY_LEVEL } from "@/components/BadgeBeast";
+
 
 
 type Props = {
@@ -73,11 +73,12 @@ export function VeloopBadge({
   const sparkleCount = rank >= 5 ? 5 : rank >= 4 ? 4 : rank >= 3 ? 3 : 2;
   const orbitMotes = rank >= 5 ? 4 : rank >= 4 ? 3 : 2;
 
-  const beast = BEAST_BY_LEVEL[tier.level] ?? "bull";
-  const beastCycle = `${8.5 - rank * 0.5}s`;
-  const beastSize = size * 0.92;
-  /** beasts only roam on the large hero/grid crests — small chips stay clean */
-  const showBeasts = size >= 96;
+  /** heavy card-reveal FX only on the large hero/grid crests — small chips stay clean */
+  const showFx = size >= 96;
+  /** cinematic lens-flare cycle — every badge flares, staggered by level */
+  const flareCycle = `${5.5 + (tier.level % 4) * 0.7}s`;
+  const flareDelay = `${(tier.level % 5) * -1.1}s`;
+
 
 
   return (
