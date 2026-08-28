@@ -98,6 +98,85 @@ export function VeloopBadge({
         />
       )}
 
+      {/* charged energy frame — legendary card border glow */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-[-8%] rounded-[28%] animate-fx-frame-charge"
+        style={{
+          border: `${Math.max(1.5, size * 0.014)}px solid ${fxColor}`,
+          boxShadow: `0 0 ${size * 0.16}px ${fxColor}, inset 0 0 ${size * 0.12}px ${fxColor}99`,
+          opacity: 0.55 * fx,
+          animationDuration: `${3.2 - rank * 0.18}s`,
+        }}
+      />
+
+      {/* flame crown licking up behind the crest */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-visible"
+        style={{ opacity: fx }}
+      >
+        {[0, 1, 2].map((i) => (
+          <span
+            key={`flame-${i}`}
+            className="absolute bottom-[8%] rounded-[50%_50%_45%_45%/70%_70%_30%_30%] animate-fx-flame blur-[6px]"
+            style={{
+              left: `${18 + i * 28}%`,
+              width: size * (0.34 - i * 0.03),
+              height: size * (0.85 + i * 0.07),
+              background: `linear-gradient(to top, ${fxColor}00 0%, ${fxColor}cc 35%, #fff4d0aa 78%, transparent 100%)`,
+              animationDelay: `${i * -0.45}s`,
+              animationDuration: `${1.4 + i * 0.22}s`,
+              mixBlendMode: "screen",
+            }}
+          />
+        ))}
+      </span>
+
+      {/* rising embers */}
+      {Array.from({ length: rank >= 3 ? 8 : 5 }).map((_, i) => (
+        <span
+          key={`ember-${i}`}
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 rounded-full animate-fx-ember"
+          style={
+            {
+              left: `${8 + ((i * 11) % 84)}%`,
+              width: Math.max(2, size * (0.022 + (i % 3) * 0.008)),
+              height: Math.max(2, size * (0.022 + (i % 3) * 0.008)),
+              background: i % 3 === 0 ? "#fff3d4" : fxColor,
+              boxShadow: `0 0 ${size * 0.07}px ${fxColor}`,
+              opacity: fx,
+              animationDelay: `${i * -0.42}s`,
+              animationDuration: `${3 + (i % 4) * 0.6}s`,
+              "--ember-drift": `${(i % 2 ? 1 : -1) * (8 + i * 2)}px`,
+            } as React.CSSProperties
+          }
+        />
+      ))}
+
+      {/* counter-rotating energy ribbons */}
+      {[0, 1].map((i) => (
+        <span
+          key={`ribbon-${i}`}
+          aria-hidden
+          className="pointer-events-none absolute inset-[-14%] rounded-full animate-fx-ribbon blur-[3px]"
+          style={{
+            background: `conic-gradient(from ${i * 140}deg, transparent 0deg, ${fxColor}00 60deg, ${fxColor}bb 110deg, #ffffffaa 130deg, ${fxColor}00 180deg, transparent 360deg)`,
+            maskImage:
+              "radial-gradient(circle, transparent 52%, black 62%, black 74%, transparent 80%)",
+            WebkitMaskImage:
+              "radial-gradient(circle, transparent 52%, black 62%, black 74%, transparent 80%)",
+            animationDirection: i ? "reverse" : "normal",
+            animationDuration: `${13 - rank}s`,
+            opacity: 0.8 * fx,
+            mixBlendMode: "screen",
+          }}
+        />
+      ))}
+
+
+
       {/* mythic guardian beasts charging in from both flanks, clashing behind the crest */}
       {showBeasts && (
         <span
