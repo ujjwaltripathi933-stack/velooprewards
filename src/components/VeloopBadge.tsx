@@ -352,7 +352,7 @@ export function VeloopBadge({
         ))}
 
       {/* shard burst — light fragments blasting outward on the reveal beat */}
-      {Array.from({ length: rank >= 3 ? 10 : 6 }).map((_, i) => {
+      {showBeasts && Array.from({ length: rank >= 3 ? 10 : 6 }).map((_, i) => {
         const total = rank >= 3 ? 10 : 6;
         return (
           <span
