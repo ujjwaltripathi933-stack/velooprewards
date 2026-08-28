@@ -537,6 +537,79 @@
 }
 
 
+/* ---------- cinematic lens flare / starburst (bright light streak) ---------- */
+
+/* horizontal light streak sweeping across the badge, like a camera flare */
+@keyframes fx-flare-sweep {
+  0%,
+  58% {
+    opacity: 0;
+    transform: translateX(-160%) skewX(-18deg);
+  }
+  66% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 0.9;
+    transform: translateX(160%) skewX(-18deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(160%) skewX(-18deg);
+  }
+}
+
+/* starburst core blooming at the badge centre — 4-point cross flare */
+@keyframes fx-star-bloom {
+  0%,
+  52% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.15) rotate(0deg);
+  }
+  62% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(28deg);
+  }
+  74% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.35) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.6) rotate(60deg);
+  }
+}
+
+/* soft glow halo that pulses with the flare beat */
+@keyframes fx-flare-halo {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  64% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+@utility animate-fx-flare-sweep {
+  animation: fx-flare-sweep 6s ease-in-out infinite;
+}
+
+@utility animate-fx-star-bloom {
+  animation: fx-star-bloom 6s ease-in-out infinite;
+}
+
+@utility animate-fx-flare-halo {
+  animation: fx-flare-halo 6s ease-in-out infinite;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
