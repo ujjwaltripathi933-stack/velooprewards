@@ -100,7 +100,7 @@ export function VeloopBadge({
       )}
 
       {/* charged energy frame — legendary card border glow */}
-      {showBeasts && (
+      {showFx && (
         <span
           aria-hidden
           className="pointer-events-none absolute inset-[-6%] rounded-[26%] animate-fx-frame-charge"
@@ -115,7 +115,7 @@ export function VeloopBadge({
 
 
       {/* flame crown licking up behind the crest */}
-      {showBeasts && (
+      {showFx && (
         <span
           aria-hidden
           className="pointer-events-none absolute inset-0 overflow-hidden rounded-full"
@@ -144,7 +144,7 @@ export function VeloopBadge({
       )}
 
       {/* rising embers */}
-      {showBeasts &&
+      {showFx &&
         Array.from({ length: rank >= 3 ? 8 : 5 }).map((_, i) => (
           <span
             key={`ember-${i}`}
@@ -167,7 +167,7 @@ export function VeloopBadge({
         ))}
 
       {/* counter-rotating energy ribbons */}
-      {showBeasts &&
+      {showFx &&
         [0, 1].map((i) => (
           <span
             key={`ribbon-${i}`}
@@ -190,50 +190,70 @@ export function VeloopBadge({
 
 
 
-      {/* mythic guardian beasts charging in from both flanks, clashing behind the crest */}
-      {showBeasts && (
+      {/* cinematic lens flare — horizontal light streak sweeping across the badge */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-[-8%] overflow-hidden rounded-full"
+        style={{
+          opacity: locked ? 0.35 : 1,
+          maskImage: "radial-gradient(circle at 50% 50%, black 52%, transparent 76%)",
+          WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 52%, transparent 76%)",
+        }}
+      >
+        {/* soft glow halo blooming with the flare beat */}
         <span
-          aria-hidden
-          className="pointer-events-none absolute inset-[-20%] overflow-hidden rounded-full"
+          className="absolute left-1/2 top-1/2 rounded-full animate-fx-flare-halo blur-lg"
           style={{
-            maskImage: "radial-gradient(circle at 50% 50%, black 55%, transparent 78%)",
-            WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 55%, transparent 78%)",
+            width: size * 0.9,
+            height: size * 0.9,
+            background: `radial-gradient(circle, #ffffffcc 0%, ${fxColor}88 30%, transparent 68%)`,
+            animationDuration: flareCycle,
+            animationDelay: flareDelay,
+            mixBlendMode: "screen",
           }}
+        />
+        {/* horizontal light streak */}
+        <span
+          className="absolute inset-y-[38%] w-[55%] animate-fx-flare-sweep blur-[3px]"
+          style={{
+            background: `linear-gradient(to right, transparent 0%, ${fxColor}66 30%, #ffffff 50%, ${fxColor}66 70%, transparent 100%)`,
+            animationDuration: flareCycle,
+            animationDelay: flareDelay,
+            mixBlendMode: "screen",
+          }}
+        />
+        {/* 4-point starburst core */}
+        <span
+          className="absolute left-1/2 top-1/2 animate-fx-star-bloom"
+          style={{ animationDuration: flareCycle, animationDelay: flareDelay, mixBlendMode: "screen" }}
         >
-
-          <BadgeBeast
-            kind={beast}
-            color={fxColor}
-            opacity={locked ? 0.28 : 0.6}
-            className="absolute left-0 top-[38%] -translate-y-1/2 animate-beast-charge-in"
-            style={{ width: beastSize, height: beastSize * 0.6, animationDuration: beastCycle }}
-          />
-          <BadgeBeast
-            kind={beast}
-            color={fxColor}
-            flip
-            opacity={locked ? 0.28 : 0.6}
-            className="absolute right-0 top-[62%] -translate-y-1/2 animate-beast-charge-out"
-            style={{
-              width: beastSize,
-              height: beastSize * 0.6,
-              animationDuration: beastCycle,
-              animationDelay: "-0.25s",
-            }}
-          />
-          {/* clash impact flash */}
-          <span
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-beast-clash-flash blur-md"
-            style={{
-              width: size * 0.5,
-              height: size * 0.5,
-              background: `radial-gradient(circle, #ffffff 0%, ${fxColor}cc 35%, transparent 70%)`,
-              animationDuration: beastCycle,
-              opacity: fx,
-            }}
-          />
+          <svg
+            viewBox="0 0 100 100"
+            width={size * 0.95}
+            height={size * 0.95}
+            style={{ transform: "translate(-50%, -50%)" }}
+            aria-hidden="true"
+          >
+            <defs>
+              <radialGradient id={`flare-core-${tier.level}`}>
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="35%" stopColor={fxColor} stopOpacity="0.9" />
+                <stop offset="100%" stopColor={fxColor} stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            {/* cross rays */}
+            <path d="M50 0 L54 44 L100 50 L54 56 L50 100 L46 56 L0 50 L46 44 Z" fill="#ffffff" opacity="0.95" />
+            <path
+              d="M50 18 L52.5 46 L82 50 L52.5 54 L50 82 L47.5 54 L18 50 L47.5 46 Z"
+              fill={fxColor}
+              opacity="0.8"
+              transform="rotate(45 50 50)"
+            />
+            <circle cx="50" cy="50" r="16" fill={`url(#flare-core-${tier.level})`} />
+          </svg>
         </span>
-      )}
+      </span>
+
 
 
 
