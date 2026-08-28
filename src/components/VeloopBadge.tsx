@@ -99,16 +99,19 @@ export function VeloopBadge({
       )}
 
       {/* charged energy frame — legendary card border glow */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-[-8%] rounded-[28%] animate-fx-frame-charge"
-        style={{
-          border: `${Math.max(1.5, size * 0.014)}px solid ${fxColor}`,
-          boxShadow: `0 0 ${size * 0.16}px ${fxColor}, inset 0 0 ${size * 0.12}px ${fxColor}99`,
-          opacity: 0.55 * fx,
-          animationDuration: `${3.2 - rank * 0.18}s`,
-        }}
-      />
+      {showBeasts && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-[-6%] rounded-[26%] animate-fx-frame-charge"
+          style={{
+            border: `${Math.max(1, size * 0.01)}px solid ${fxColor}`,
+            boxShadow: `0 0 ${size * 0.12}px ${fxColor}80`,
+            opacity: 0.4 * fx,
+            animationDuration: `${3.2 - rank * 0.18}s`,
+          }}
+        />
+      )}
+
 
       {/* flame crown licking up behind the crest */}
       {showBeasts && (
