@@ -339,6 +339,34 @@ export function VeloopBadge({
           </span>
         ))}
 
+      {/* shard burst — light fragments blasting outward on the reveal beat */}
+      {Array.from({ length: rank >= 3 ? 10 : 6 }).map((_, i) => {
+        const total = rank >= 3 ? 10 : 6;
+        return (
+          <span
+            key={`shard-${i}`}
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 animate-fx-shard"
+            style={
+              {
+                width: Math.max(2, size * 0.02),
+                height: size * (0.12 + (i % 3) * 0.03),
+                borderRadius: "2px",
+                background: `linear-gradient(to bottom, #ffffff, ${fxColor}00)`,
+                boxShadow: `0 0 ${size * 0.06}px ${fxColor}`,
+                opacity: fx,
+                animationDuration: `${5.5 - rank * 0.3}s`,
+                animationDelay: `${i * -0.08}s`,
+                "--shard-angle": `${(360 / total) * i}deg`,
+                "--shard-dist": `${size * 0.6}px`,
+              } as React.CSSProperties
+            }
+          />
+        );
+      })}
+
+
+
       {/* guardian beast lunging out in front of the crest */}
       {!locked && showBeasts && rank >= 2 && (
         <BadgeBeast
