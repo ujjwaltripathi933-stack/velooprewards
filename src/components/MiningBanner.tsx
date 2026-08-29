@@ -57,7 +57,7 @@ export function MiningBanner() {
       <div className="pointer-events-none absolute inset-0 grid-veil opacity-60" />
 
       {/* rising coins */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3">
+      <div className="pointer-events-none absolute inset-0">
         {COINS.map((c) => (
           <span
             key={c.left}
