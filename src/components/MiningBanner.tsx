@@ -64,12 +64,12 @@ export function MiningBanner() {
         {COINS.map((c) => (
           <span
             key={c.left}
-            className="absolute bottom-6 animate-rise-coin"
+            className="absolute bottom-6 animate-rise-coin [filter:drop-shadow(0_0_10px_rgba(232,189,92,0.85))_drop-shadow(0_0_22px_rgba(232,189,92,0.4))]"
             style={{
               left: c.left,
               animationDelay: c.delay,
               ["--drift" as string]: c.drift,
-              animationDuration: mining ? "2.4s" : "4.2s",
+              animationDuration: mining ? "2.2s" : "3.6s",
             }}
           >
             <VeCoin size={c.size} />
