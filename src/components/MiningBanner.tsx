@@ -3,12 +3,15 @@ import { ArrowRight, Cpu, Gauge, Pickaxe, Wallet } from "lucide-react";
 import miningScene from "@/assets/mining-scene.png";
 
 const COINS = [
-  { left: "12%", delay: "0s", drift: "26px", size: 22 },
-  { left: "26%", delay: "0.8s", drift: "-18px", size: 16 },
-  { left: "38%", delay: "1.6s", drift: "34px", size: 26 },
-  { left: "52%", delay: "0.4s", drift: "-24px", size: 18 },
-  { left: "66%", delay: "2.2s", drift: "20px", size: 22 },
-  { left: "80%", delay: "1.2s", drift: "-30px", size: 14 },
+  { left: "8%", delay: "0s", drift: "30px", size: 34 },
+  { left: "18%", delay: "1.4s", drift: "-22px", size: 26 },
+  { left: "28%", delay: "0.7s", drift: "38px", size: 40 },
+  { left: "40%", delay: "2.1s", drift: "-30px", size: 28 },
+  { left: "52%", delay: "0.3s", drift: "24px", size: 36 },
+  { left: "63%", delay: "1.8s", drift: "-36px", size: 24 },
+  { left: "74%", delay: "0.9s", drift: "28px", size: 32 },
+  { left: "86%", delay: "2.6s", drift: "-20px", size: 26 },
+  { left: "94%", delay: "1.1s", drift: "-34px", size: 38 },
 ];
 
 function VeCoin({ size = 20 }: { size?: number }) {
@@ -61,12 +64,12 @@ export function MiningBanner() {
         {COINS.map((c) => (
           <span
             key={c.left}
-            className="absolute bottom-6 animate-rise-coin"
+            className="absolute bottom-6 animate-rise-coin [filter:drop-shadow(0_0_10px_rgba(232,189,92,0.85))_drop-shadow(0_0_22px_rgba(232,189,92,0.4))]"
             style={{
               left: c.left,
               animationDelay: c.delay,
               ["--drift" as string]: c.drift,
-              animationDuration: mining ? "2.4s" : "4.2s",
+              animationDuration: mining ? "2.2s" : "3.6s",
             }}
           >
             <VeCoin size={c.size} />
